@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/postrequest.js"></script>
+    <script src="/js/getrequest.js"></script>
+</head>
+<body>
+<div class="container">
+    <form th:action="/getsua" method="post">
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="id" id="idstudent" th:value="${student.id}">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="name" id="name" th:value="${student.name}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="old" id="old" th:value="${student.old}">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="classname" id="classname" th:value="${student.classname}">
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="sua()">Sign in</button>
+    </form>
+</div>
+</body>
+</html>
