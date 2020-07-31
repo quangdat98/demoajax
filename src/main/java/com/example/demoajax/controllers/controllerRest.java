@@ -22,9 +22,19 @@ public class controllerRest {
     }
 
     @PostMapping("/getsua")
-    public Student getSudent(@ModelAttribute Student student){
-        Student getStudentUpdate = studentService.updateStudent(student);
-        return getStudentUpdate;
+    public Boolean getSudent(@RequestBody Student student ){
+        if(studentService.updateStudent(student)){
+            return true;
+        }
+        return false;
+    }
+
+    @PostMapping("/themmoi")
+    public Boolean getinsert(@RequestBody Student student ){
+        if(studentService.updateStudent(student)){
+            return true;
+        }
+        return false;
     }
 
 }

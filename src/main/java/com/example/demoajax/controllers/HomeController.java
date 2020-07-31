@@ -1,5 +1,6 @@
 package com.example.demoajax.controllers;
 
+import com.example.demoajax.model.Student;
 import com.example.demoajax.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,5 +30,10 @@ public class HomeController {
     public String sua(@PathVariable int id, Model model){
         model.addAttribute("student",studentService.findStudent(id));
         return "trangsua";
+    }
+    @GetMapping("/them")
+    public String them(Model model){
+        model.addAttribute("student",new Student());
+        return "themmoi";
     }
 }

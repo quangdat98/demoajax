@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/postrequest.js"></script>
+</head>
+<body>
+<div class="container">
+    <div th:include="header/header :: header"></div>
+    <h3 id="message1" style="color: blue;background: antiquewhite;height: 50px;line-height: 50px;padding-left: 10px;"></h3>
+
+    <form  method="post" action="/themmoi" >
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="id" name="id" id="idstudent" readonly>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="name" name="name" id="name" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="old" name="old" id="old" >
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="classname" name="classname" id="classname">
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="butonthem">Sign in</button>
+    </form>
+
+</div>
+</body>
+</html>

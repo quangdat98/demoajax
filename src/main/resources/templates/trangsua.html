@@ -11,7 +11,9 @@
 </head>
 <body>
 <div class="container">
-    <form th:action="/getsua" method="post">
+    <div th:include="header/header :: header"></div>
+    <h3 id="message" style="color: blue;background: antiquewhite;height: 50px;line-height: 50px;padding-left: 10px;"></h3>
+    <form th:object="${student}" method="post" id="customerForm">
         <div class="row">
             <div class="col">
                 <input type="text" class="form-control" placeholder="id" id="idstudent" th:value="${student.id}">
@@ -28,8 +30,9 @@
                 <input type="text" class="form-control" placeholder="classname" id="classname" th:value="${student.classname}">
             </div>
         </div>
-        <button type="button" class="btn btn-primary" onclick="sua()">Sign in</button>
+        <button type="submit" class="btn btn-primary">Sign in</button>
     </form>
 </div>
+<script src="/js/postrequest.js"></script>
 </body>
 </html>

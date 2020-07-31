@@ -32,23 +32,69 @@ $(document).ready(function () {
         }
     })
 
-    function sua() {
+    $("#customerForm").submit(function(event) {
+        // Prevent the form from submitting via the browser.
+        event.preventDefault();
+        ajaxPost();
+    });
+
+    function ajaxPost(){
 
         var formstudent ={
-            id :$('#idstudent').val(),
-            name: $('#name').val(),
-            old: $('#old').val(),
-            className: $('#classname').val(),
+            id :        $('#idstudent').val(),
+            name:       $('#name').val(),
+            old:        $('#old').val(),
+            classname:  $('#classname').val(),
+        }
+
+        $.ajax({
+            type : "POST",
+            contentType : "application/json",
+            url: "/getsua",
+            data: JSON.stringify(formstudent), // stringify dùng để chuyển 1 đối tượng ở javacript sang dạng json
+            dataType:'json',
+            success: function (kq) {
+                if(kq){
+                    $('#message').html('Đã Sửa Thành Công!!!');
+                }else {
+                    $('#message').html('Sửa Thất Bại!!!');
+                }
+            },
+            error: function () {
+                $('#message').html('Sửa Thất Bại!!!');
+            },
+        })
+    }
+
+
+
+    /*          button them moi           */
+
+    $(document).delegate('#butonthem','click',function () {/* thằng delegate giao quyền thực hiện 1 cái gì đó  */
+
+        var formstudent={
+            id:         $('#idstudent').val(),
+            name:       $('#name').val(),
+            old:        $('#old').val(),
+            classname:  $('#classname').val(),
         }
 
         $.ajax({
             type: "POST",
-            url: "/getsua",
-            data: json.isPrototypeOf(formstudent),
-
+            contentType: "application/json",
+            url: "/themmoi",
+            data: JSON.stringify(formstudent),
+            dataType: 'json',
+            success: function (kq) {
+                $('#message1').html('Bạn Đã Thêm Mới Thành Công');
+            },
+            error: function () {
+                $('#message1').html('Bạn Thêm Mới Thất Bại');
+            }
         })
 
-    }
+    })
+
 
 
 

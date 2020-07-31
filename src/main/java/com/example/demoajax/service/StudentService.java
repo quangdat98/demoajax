@@ -11,5 +11,5 @@ public interface StudentService {
 
     Student findStudent(int id);
 
-    Student updateStudent(Student student);
+    Boolean updateStudent(Student student);
 }

@@ -1,6 +1,7 @@
 package com.example.demoajax.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -11,16 +12,18 @@ public class Student {
     private int id;
     private String name;
     private String old;
-    private String classname;
 
-    public Student() {
-    }
+    @Column(name = "classname")
+    private String classname;
 
     public Student(int id, String name, String old, String classname) {
         this.id = id;
         this.name = name;
         this.old = old;
         this.classname = classname;
+    }
+
+    public Student() {
     }
 
     public int getId() {

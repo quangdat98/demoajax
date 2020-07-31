@@ -33,7 +33,8 @@ public class studentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student updateStudent(Student student) {
-        return studentRepository.save(student);
+    public Boolean updateStudent(Student student) {
+         studentRepository.save(student);
+         return true;
     }
 }
